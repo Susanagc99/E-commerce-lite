@@ -1,5 +1,5 @@
 
-interface product {
+export interface product {
     name: string;
     brand: string;
     quantity: number;
@@ -82,4 +82,41 @@ const user3: User = {
         city: "",
         country: ""
     }
+}
+
+
+const user4: User = {
+    name: "",
+    cc: 0,
+    email: "",
+    phone: "",
+    address: {
+        street: "",
+        city: "",
+        country: "",
+        postalCode: ""
+    }
+}
+
+const user5: User = {
+    name: "",
+    cc: 0,
+    email: "",
+    phone: "",
+    address: {
+        street: "",
+        city: "",
+        country: ""
+    }
+}
+
+
+export {
+    product1,
+    product2,
+    user1,
+    user2,
+    user3,
+    user4,
+    user5
 }
