@@ -1,6 +1,6 @@
 import { CircleCheck, CircleX } from "lucide-react";
 import { useState } from "react";
-import { product,product1,product2} from  "../interfaces/interfaces";
+import { product, product1, product2 } from '../interfaces/interfaces';
 
 export default function Home() {
 
@@ -19,10 +19,7 @@ export default function Home() {
 
   return (
     <main className="main-container">
-      <h1 className="text-4xl font-bold">HELLO WORLD!! ✨</h1>
-      <h2 className="text-2xl text-blue-200">
-        Mi primer ¡Hola Mundo! desde Next.js + TypeScript! 🤍
-      </h2>
+      <h1 className="text-4xl font-bold">Dashboard</h1>
       <button onClick={handlelick} className="bg-amber-50 miButton">Show products</button>
       <div>
         {state && (

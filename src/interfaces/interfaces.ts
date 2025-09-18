@@ -33,16 +33,16 @@ const product1: product = {
     quantity: 28,
     price: 2500000,
     currency: "COP",
-    isActive: false
+    isActive: true
 }
 
 const product2: product = {
-    name: "play station 5",
+    name: "Play station 5",
     brand: "play station",
     quantity: 50,
     price: 800,
     currency: "USD",
-    isActive: true
+    isActive: false
 }
 
 

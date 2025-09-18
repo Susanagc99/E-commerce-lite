@@ -23,8 +23,7 @@ body {
 .main-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin: 5%;
   gap: 80px;
   min-height: 100vh;
 }
@@ -42,5 +41,6 @@ body {
 
 .list {
   display: flex;
+  flex-direction: column;
   gap: 50px;
 }
