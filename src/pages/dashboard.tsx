@@ -1,6 +1,7 @@
 import { CircleCheck, CircleX } from "lucide-react";
 import { useState } from "react";
-import { product, product1, product2 } from '../dtos/interfaces';
+import { product1, product2 } from '../utils/products';
+import { product } from '../dtos/interfaces';
 
 export default function Home() {
 
