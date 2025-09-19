@@ -1,43 +1,62 @@
-import { CircleCheck, CircleX } from "lucide-react";
-import { useState } from "react";
-import { product, product1, product2 } from '../interfaces/interfaces';
+import React, { useState } from "react";
+import { useRouter } from "next/router";
+import { users } from "../utils/users"; // arreglo con usuarios y contraseñas
 
-export default function Home() {
+const Login = () => {
 
-  const [state, setState] = useState(false);
-  
-  const handlelick = () => {
-    setState(true)
+
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
+
+  const router = useRouter();
+
+  const handleChangeUser = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUser(e.target.value);
+  };
+
+  const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+
+  const handleClick = () => {
+
+    //Validación campos vacio
+    if (user == "" || password == "") {
+      alert("Debe ingresar usuario y contraseña")
+    }
+
+    //Buscar si las credenciales están en users
+    const foundUser = users.find(
+      (item) => item.name === user && item.password === password
+    );
+
+    //Verificar y acceder o mensaje de credenciales inválidas
+    if (foundUser) {
+      console.log("Login Exitoso");
+      router.push("/dashboard");
+    } else {
+      console.log("Credenciales incorrectas");
+      alert("Usuario o contraseña inválidos")
+    }
   }
 
-  const products: product[] = [
-    product1,
-    product2    
-  ]
-
-  console.log(state)
-
   return (
-    <main className="main-container">
-      <h1 className="text-4xl font-bold">Dashboard</h1>
-      <button onClick={handlelick} className="bg-amber-50 miButton">Show products</button>
-      <div>
-        {state && (
-          <ul className="list">
-            {products?.map((product) => (
-              <li className="list-item" key={product.name}>
-                <div>Nombre del producto: {product.name}</div>
-                <div>Brand: {product.brand}</div>
-                <div>Price: {product.price} {product.currency}</div>
-                <div className="list-isActive">
-                  Availability: {product.isActive 
-                  ? <CircleCheck className="text-emerald-400" /> 
-                  : <CircleX className="text-rose-700" />}</div>
-              </li>
-            ))}
-          </ul>
-        )}
+    <div className="login-container">
+      <div className="login-box">
+        <h1>Mi app</h1>
+
+        <label>Usuario</label>
+        <input value={user} onChange={handleChangeUser} type="text" />
+
+        <label>Contraseña</label>
+        <input value={password} onChange={handleChangePassword} type="password" />
+
+        <button onClick={handleClick}>Ingresar</button>
       </div>
-    </main>
-  );
+    </div>
+  )
+
 }
+
+export default Login;
