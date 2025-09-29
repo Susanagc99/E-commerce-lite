@@ -1,4 +1,4 @@
-import { User } from "../dtos/interfaces"
+import { User } from "../data/interfaces"
 
 // at least 5 users
 export const users: User[] = [

@@ -1,7 +1,7 @@
 import { CircleCheck, CircleX } from "lucide-react";
 import { useState } from "react";
-import { product1, product2 } from '../utils/products';
-import { product } from '../dtos/interfaces';
+import { product1 } from '../../utils/products';
+import { product } from '../../data/interfaces';
 
 export default function Home() {
 
@@ -13,7 +13,6 @@ export default function Home() {
 
     const products: product[] = [
         product1,
-        product2
     ]
 
     console.log(state)
@@ -34,6 +33,7 @@ export default function Home() {
                                     Availability: {product.isActive
                                         ? <CircleCheck className="text-emerald-400" />
                                         : <CircleX className="text-rose-700" />}</div>
+
                             </li>
                         ))}
                     </ul>
